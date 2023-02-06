@@ -19,9 +19,9 @@ public class SparseArray {
             System.out.println();
         }
 
-        /** Original 2D array to sparse array:
+        /* Original 2D array to sparse array:
          *  1. ergodic the 2D array get the value of number that not equal to 0
-         **/
+         */
         int sum = 0;
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
@@ -58,7 +58,25 @@ public class SparseArray {
             System.out.printf("%d\t%d\t%d\n", sparseArr[i][0], sparseArr[i][1], sparseArr[i][2]);
         }
 
-        // recover the original array from sparse array
+        /* Recover the original array from sparse array:
+            1. read the first row of sparse array to create the original array
+            2. then read the data in remaining rows, then assign them to original 2d array
+         */
+
+        int[][] chessArr2 = new int[sparseArr[0][0]][sparseArr[0][1]];
+
+        for (int i = 1; i < sparseArr.length; i ++) {
+            chessArr2[sparseArr[i][0]][sparseArr[i][1]] = sparseArr[i][2];
+        }
+
+        // print out recovered array
+        System.out.println("\nThe Recovered Array is: \n");
+        for (int[] row : chessArr2) {
+            for (int data : row) {
+                System.out.printf("%d\t", data);
+            }
+            System.out.println();
+        }
 
 
     }
