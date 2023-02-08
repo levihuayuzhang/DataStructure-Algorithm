@@ -1,1 +1,1 @@
-# Data Structure in JAVA
+# Data Structure & Algorithm in JAVA
