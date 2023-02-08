@@ -7,4 +7,5 @@ This is code implementations of Data Structures.
    1. Array Queue
    2. Circle Array Queue
 3. Linked List
+   1. Single Linked List
 
