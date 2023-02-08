@@ -48,6 +48,10 @@ public class SingleLinkedListDemo {
 //        singleLinkedList.deleteNode(3);
         System.out.println("\nDeleted Linked List: ");
         singleLinkedList.list();
+
+        // count node (list length)
+        System.out.println("\nLength for now is (count for valid nodes): "+ singleLinkedList.getLength(singleLinkedList.getHead()));
+
     }
 }
 
@@ -173,7 +177,26 @@ class SingleLinkedList {
         }
     }
 
+    /** get quantity of valid node (length) of linked list (if has head node, remove head node)
+     *
+     * @param head the head node of linked list
+     * @return return quantity of valid node in linked list
+     */
+    public int getLength(HeroNode head) {
+        if (isEmpty()) {
+            return 0;
+        }
 
+        int length = 0;
+        HeroNode tmp = head.next;
+        while (tmp != null) {
+            length ++;
+            tmp = tmp.next;
+        }
+        return length;
+    }
+
+//    public HeroNode findLast
 
     public void list() {
         if (isEmpty()) {
@@ -185,7 +208,10 @@ class SingleLinkedList {
             System.out.println(tmp);
             tmp = tmp.next;
         }
+    }
 
+    public HeroNode getHead() {
+        return this.head;
     }
 
 }
