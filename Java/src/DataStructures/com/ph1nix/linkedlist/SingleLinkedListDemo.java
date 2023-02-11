@@ -9,6 +9,9 @@
 
 package com.ph1nix.linkedlist;
 
+import java.awt.*;
+import java.util.Stack;
+
 public class SingleLinkedListDemo {
     public static void main(String[] args) {
 
@@ -17,7 +20,13 @@ public class SingleLinkedListDemo {
         HeroNode hero3 = new HeroNode(3, "JOJO", "EveryGreen");
         HeroNode hero4 = new HeroNode(4, "jinjin", "BBC");
 
+        HeroNode hero5 = new HeroNode(5, "Baga2", "Holyshit2");
+        HeroNode hero6 = new HeroNode(6, "Yoshi2", "Dame2");
+        HeroNode hero7 = new HeroNode(7, "JOJO2", "EveryGreen2");
+        HeroNode hero8 = new HeroNode(8, "jinjin2", "BBC2");
+
         SingleLinkedList singleLinkedList = new SingleLinkedList();
+        SingleLinkedList singleLinkedList2 = new SingleLinkedList();
 
 //        // test without order
 //        singleLinkedList.add(hero1);
@@ -27,12 +36,37 @@ public class SingleLinkedListDemo {
 
         // with order
         singleLinkedList.addByOrder(hero1);
-        singleLinkedList.addByOrder(hero4);
-        singleLinkedList.addByOrder(hero2);
         singleLinkedList.addByOrder(hero3);
+        singleLinkedList.addByOrder(hero5);
+        singleLinkedList.addByOrder(hero7);
 //        // already exist
 //        singleLinkedList.addByOrder(hero3);
 
+        // with order
+        singleLinkedList2.addByOrder(hero2);
+        singleLinkedList2.addByOrder(hero4);
+        singleLinkedList2.addByOrder(hero6);
+        singleLinkedList2.addByOrder(hero8);
+
+        System.out.println("Original list1: ");
+        singleLinkedList.list();
+
+        System.out.println("\nOriginal list2: ");
+        singleLinkedList2.list();
+
+        // merge two ordered list
+        System.out.println("\nMerged list: ");
+        SingleLinkedList merged = merge(singleLinkedList, singleLinkedList2);
+        merged.list();
+
+        // not modify list
+        System.out.println("\nReverse print list: ");
+        singleLinkedList.reversePrint(singleLinkedList.getHead());
+
+
+        // reverse single linked list
+        singleLinkedList.reverseList(singleLinkedList.getHead());
+        System.out.println("\nReversed list: ");
         singleLinkedList.list();
 
         // update list
@@ -44,7 +78,7 @@ public class SingleLinkedListDemo {
         // delete node
         singleLinkedList.deleteNode(1);
         singleLinkedList.deleteNode(4);
-        singleLinkedList.deleteNode(2);
+//        singleLinkedList.deleteNode(2);
 //        singleLinkedList.deleteNode(3);
         System.out.println("\nDeleted Linked List: ");
         singleLinkedList.list();
@@ -52,6 +86,36 @@ public class SingleLinkedListDemo {
         // count node (list length)
         System.out.println("\nLength for now is (count for valid nodes): "+ singleLinkedList.getLength(singleLinkedList.getHead()));
 
+        // last k node in list
+        HeroNode result = singleLinkedList.findLastNodeByIndex(singleLinkedList.getHead(), 2);
+        System.out.println(result);
+
+    }
+
+    // merge 2 list by order
+    public static SingleLinkedList merge (SingleLinkedList firstList, SingleLinkedList secondList) {
+
+        SingleLinkedList targetList  = new SingleLinkedList();
+
+        HeroNode tmp1 = firstList.getHead().next;
+        HeroNode tmp2 = secondList.getHead().next;
+        HeroNode tmp3 = targetList.getHead();
+
+        while (tmp1 != null && tmp2 != null) {
+            if (tmp1.no > tmp2.no) {
+                tmp3.next = tmp2;
+                tmp2 = tmp2.next;
+            } else {
+                tmp3.next = tmp1;
+                tmp1 = tmp1.next;
+            }
+            tmp3 = tmp3.next;
+        }
+
+
+        tmp3.next = tmp1 == null ? tmp2 : tmp1;
+
+        return targetList;
     }
 }
 
@@ -62,7 +126,7 @@ class SingleLinkedList {
     // add nodes to single linked list
     // added node's next node should point to tail node
     // IGNORING no (Sequence)
-    public void add (HeroNode heroNode) {
+    public void add (HeroNode heroNode) { // append at end
         // head not should not be modified, need a tmp reference
         HeroNode tmp = head;
         while(true) {
@@ -196,7 +260,83 @@ class SingleLinkedList {
         return length;
     }
 
-//    public HeroNode findLast
+    /**
+     * find the last k (index) node in single linked list
+     * 1. find ergodic the list, getLength()
+     * 2. then ergodic (length - index) times from the head to find the target
+     * 3. if found, return node, otherwise, return null
+     *
+     * @param head the head node
+     * @param index the descending index (start from tail to head)
+     * @return if found, return node, otherwise, return null
+     */
+    public HeroNode findLastNodeByIndex(HeroNode head, int index) {
+        if (isEmpty()) {
+            return null; // not found
+        }
+        // first ergodic to get the length
+        int size =  getLength(head);
+        //second ergodic (size - index) to find the target node
+        if (index <= 0 || index > size) { // index out of range
+            return null;
+        }
+
+        HeroNode tmp = head.next;
+        for (int i = 0; i < size - index; i++) {
+            tmp = tmp.next;
+        }
+        return tmp;
+    }
+
+    /**
+     * Reverse the Single linked list
+     * 1. new node called reverseHead
+     * 2. ergodic original list, pick up each node and put into start of new list (reverseHead.next)
+     * 3. when ergodic finished, head.next = reverseHead.next
+     *
+     * @param head
+     */
+    public void reverseList (HeroNode head) {
+        // empty or only have 1 node, no need to reverse
+        if (head.next == null || head.next.next == null) {
+            return;
+        }
+
+        HeroNode tmp = head.next;
+        HeroNode next = null; // point to tmp.next
+        HeroNode reverseHead =  new HeroNode(0, "", "");
+
+        while(tmp != null) {
+            next = tmp.next; // cache the next node of current tmp reference, needed later
+
+            tmp.next = reverseHead.next; // point current tmp next to the new list head next
+            reverseHead.next = tmp;
+
+            tmp = next;
+        }
+        head.next = reverseHead.next;
+    }
+
+    // print list in descending order
+    // 1. reverse then print (not good, because this will change the original structure of list)
+    // 2. use stack
+    public void reversePrint(HeroNode head) {
+        if (isEmpty()) {
+            return;
+        }
+
+        Stack<HeroNode> stack = new Stack<HeroNode>();
+        HeroNode tmp = head.next;
+
+        while (tmp != null) {
+            stack.push(tmp);
+            tmp = tmp.next;
+        }
+
+        while (stack.size() > 0) {
+            System.out.println(stack.pop().toString());
+        }
+    }
 
     public void list() {
         if (isEmpty()) {
