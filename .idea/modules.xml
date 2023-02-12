@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Java/Algorithm/Algorithm.iml" filepath="$PROJECT_DIR$/Java/Algorithm/Algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Cryptography/Cryptography.iml" filepath="$PROJECT_DIR$/Java/Cryptography/Cryptography.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/DataStructures/DataStructures.iml" filepath="$PROJECT_DIR$/Java/DataStructures/DataStructures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dsna.iml" filepath="$PROJECT_DIR$/dsna.iml" />
+    </modules>
+  </component>
+</project>
