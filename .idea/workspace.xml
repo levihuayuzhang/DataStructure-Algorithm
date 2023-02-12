@@ -4,28 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987cdd4f-86d0-4603-9078-40e483304737" name="Changes" comment="more on single linked list:&#10;&#10;1. merge two list by order&#10;2. last k node&#10;3. reverse print (not modify list)(using stack)">
-      <change afterPath="$PROJECT_DIR$/Java/Algorithm/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/Cryptography/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/DataStructures/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/DataStructures/src/com/ph1nix/linkedlist/SingleLinkedListDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/DataStructures/src/com/ph1nix/queue/ArrayQueueDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/DataStructures/src/com/ph1nix/queue/CircleArrayQueueDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/DataStructures/src/com/ph1nix/sparsearray/SparseArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/dsna.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/Algorithm/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/Cryptography/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/DataStructures/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/DataStructures/com/ph1nix/linkedlist/SingleLinkedListDemo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/DataStructures/com/ph1nix/queue/ArrayQueueDemo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/DataStructures/com/ph1nix/queue/CircleArrayQueueDemo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/DataStructures/com/ph1nix/sparsearray/SparseArray.java" beforeDir="false" />
+    <list default="true" id="987cdd4f-86d0-4603-9078-40e483304737" name="Changes" comment="Separate java source into different idea modules">
+      <change afterPath="$PROJECT_DIR$/Java/DataStructures/src/com/ph1nix/linkedlist/DoubleLinkedListDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/DataStructures/src/com/ph1nix/linkedlist/SingleLinkedListDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/DataStructures/src/com/ph1nix/linkedlist/SingleLinkedListDemo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,50 +42,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/93236/projects/java/dsna/Java&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "19",
+    "last_opened_file_path": "C:/Users/93236/projects/java/dsna/Java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\93236\projects\java\dsna\Java" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="SingleLinkedListDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ph1nix.linkedlist.SingleLinkedListDemo" />
-      <module name="dsna" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ph1nix.linkedlist.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.SingleLinkedListDemo" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -121,7 +85,9 @@
       <workItem from="1676141614717" duration="1259000" />
       <workItem from="1676214983136" duration="12000" />
       <workItem from="1676215089494" duration="329000" />
-      <workItem from="1676215432444" duration="38000" />
+      <workItem from="1676215432444" duration="431000" />
+      <workItem from="1676215878099" duration="81000" />
+      <workItem from="1676216849224" duration="5834000" />
     </task>
     <task id="LOCAL-00001" summary="add algorithm folder">
       <created>1675855023569</created>
@@ -193,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676080478553</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Separate java source into different idea modules">
+      <created>1676215769443</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1676215769443</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,9 +198,19 @@
     <MESSAGE value="project structure change to multi programming language" />
     <MESSAGE value="add cryptography algorithm in java" />
     <MESSAGE value="more on single linked list:&#10;&#10;1. merge two list by order&#10;2. last k node&#10;3. reverse print (not modify list)(using stack)" />
-    <option name="LAST_COMMIT_MESSAGE" value="more on single linked list:&#10;&#10;1. merge two list by order&#10;2. last k node&#10;3. reverse print (not modify list)(using stack)" />
+    <MESSAGE value="Separate java source into different idea modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="Separate java source into different idea modules" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Java/DataStructures/src/com/ph1nix/linkedlist/DoubleLinkedListDemo.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.ph1nix.linkedlist.SingleLinkedList" memberName="head" />
