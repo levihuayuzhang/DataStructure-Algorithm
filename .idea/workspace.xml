@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987cdd4f-86d0-4603-9078-40e483304737" name="Changes" comment="circle linked list">
+    <list default="true" id="987cdd4f-86d0-4603-9078-40e483304737" name="Changes" comment="josephus problem finished">
+      <change afterPath="$PROJECT_DIR$/Java/DataStructures/src/com/ph1nix/stack/ArrayStackDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/DataStructures/src/com/ph1nix/linkedlist/Joseph.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/DataStructures/src/com/ph1nix/linkedlist/JosephusProblem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -89,7 +89,7 @@
       <workItem from="1676216849224" duration="6520000" />
       <workItem from="1676307136900" duration="616000" />
       <workItem from="1676316303867" duration="5120000" />
-      <workItem from="1676377859243" duration="10419000" />
+      <workItem from="1676377859243" duration="12238000" />
     </task>
     <task id="LOCAL-00001" summary="add algorithm folder">
       <created>1675855023569</created>
@@ -182,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676343043130</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="josephus problem finished">
+      <created>1676507330904</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1676507330904</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +224,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
@@ -234,7 +243,8 @@
     <MESSAGE value="Separate java source into different idea modules" />
     <MESSAGE value="double linked list" />
     <MESSAGE value="circle linked list" />
-    <option name="LAST_COMMIT_MESSAGE" value="circle linked list" />
+    <MESSAGE value="josephus problem finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="josephus problem finished" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
