@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="WSL - Debian" type="wsl" uuid="14b2785e-6420-49fe-8e51-0410e82a5659">
+        <config>
+          <option name="distributionMsId" value="Debian" />
+          <option name="projectRootOnTarget" value="/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2022.3.2/jbr/bin&#10;/DataStructure-Algorithm" />
+        </config>
+      </target>
+      <target name="zhy@dev.local:22" type="ssh/sftp" uuid="b249e5a3-b45d-41bd-8e98-469c4ae9404f">
+        <config>
+          <option name="projectRootOnTarget" value="/tmp/DataStructure-Algorithm" />
+          <option name="serverName" value="zhy@dev.local:22 password" />
+          <option name="useRsync" value="true" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="javaVersionString" value="17.0.6" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>

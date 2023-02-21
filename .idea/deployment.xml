@@ -10,14 +10,6 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="mldev_public (8ea80390-b323-444b-a1c5-58e9ceb2921f)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$/Java/DataStructures" web="/" />
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="pi_remote (242ddcd6-47d1-4997-bebf-2e1d5aaa91e8)">
         <serverdata>
           <mappings>
