@@ -25,7 +25,7 @@ public class SelectSort {
         }
 
         Date date1 = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
         String date1Str = simpleDateFormat.format(date1);
         System.out.println("Before sort: " + date1Str);
 
@@ -33,7 +33,7 @@ public class SelectSort {
 
         Date date2 = new Date();
         String date2Str = simpleDateFormat.format(date2);
-        System.out.println("Before sort: " + date2Str);
+        System.out.println("After sort: " + date2Str);
     }
 
     public static int[] selectSort(int[] arr) {

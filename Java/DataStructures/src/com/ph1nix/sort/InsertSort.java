@@ -1,6 +1,8 @@
 package com.ph1nix.sort;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * InsertSort
@@ -11,11 +13,27 @@ import java.util.Arrays;
 public class InsertSort {
     public static void main(String[] args) {
         int[] arr = {101, 34, 119, 1};
-        insertSort(arr);
+
+        // larger array test
+        int[] arrayLarge = new int[80000];
+        for (int i = 0; i < arrayLarge.length; i++) {
+            arrayLarge[i] = (int) (Math.random() * arrayLarge.length);
+        }
+
+        Date date1 = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
+        String date1Str = simpleDateFormat.format(date1);
+        System.out.println("Before sort: " + date1Str);
+
+        System.out.println(Arrays.toString(insertSort(arr)));
+
+        Date date2 = new Date();
+        String date2Str = simpleDateFormat.format(date2);
+        System.out.println("After sort: " + date2Str);
 
     }
 
-    public static void insertSort(int[] arr) {
+    public static int[] insertSort(int[] arr) {
         int tmp = 1;
         while (tmp < arr.length) {
             int insertValue = arr[tmp];
@@ -31,11 +49,14 @@ public class InsertSort {
                 insertValueIndex--;
             }
             // when exit the while loop, the insertion location has been found
-            arr[insertValueIndex + 1] = insertValue;
-            System.out.println(Arrays.toString(arr));
+            if (insertValueIndex + 1!= tmp) {
+                arr[insertValueIndex + 1] = insertValue;
+            }
+//            System.out.println(Arrays.toString(arr));
             tmp++;
         }
 
+        return arr;
 
     }
 }

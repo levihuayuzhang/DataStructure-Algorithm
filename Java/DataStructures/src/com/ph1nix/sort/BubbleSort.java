@@ -35,7 +35,7 @@ public class BubbleSort {
 
         Date date2 = new Date();
         String date2Str = simpleDateFormat.format(date2);
-        System.out.println("Before sort: " + date2Str);
+        System.out.println("After sort: " + date2Str);
     }
 
     private static int[] bubbleSort(int[] arr) {
