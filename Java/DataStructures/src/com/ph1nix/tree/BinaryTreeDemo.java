@@ -8,6 +8,7 @@ package com.ph1nix.tree;
  */
 public class BinaryTreeDemo {
     public static void main(String[] args) {
+        // create nodes
         BinaryTree binaryTree = new BinaryTree();
         Node root = new Node(1, "ass");
         Node node2 = new Node(2, "shit");
@@ -15,6 +16,7 @@ public class BinaryTreeDemo {
         Node node4 = new Node(4, "holy");
         Node node5 = new Node(5, "wow");
 
+        // create binary tree
         root.setLeft(node2);
         root.setRight(node3);
         node3.setRight(node4);
@@ -53,6 +55,15 @@ public class BinaryTreeDemo {
         } else {
             System.err.println("Not found!");
         }
+
+        System.out.println("Before delete:");
+        binaryTree.preOrder();
+
+//        binaryTree.delNode(5);
+        binaryTree.delNode(3); // delete child tree
+
+        System.out.println("After delete:");
+        binaryTree.preOrder();
 
     }
 }
@@ -109,6 +120,18 @@ class BinaryTree {
             return null;
         }
     }
+
+    public void delNode (int no) {
+        if (root != null) {
+            if (root.getNo() == no) {
+                root = null;
+            } else {
+                root.delNode(no);
+            }
+        } else {
+            System.err.println("Empty tree...");
+        }
+    }
 }
 
 class Node {
@@ -160,6 +183,27 @@ class Node {
                 "no=" + no +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public void delNode (int no) {
+        if (this.left != null && this.left.no == no) {
+            this.left = null;
+            return;
+        }
+
+        if (this.right != null && this.right.no == no) {
+            this.right = null;
+            return;
+        }
+
+        if (this.left != null) {
+            this.left.delNode(no);
+        }
+
+        if (this.right != null) {
+            this.right.delNode(no);
+        }
+
     }
 
     public void preOrder () {
