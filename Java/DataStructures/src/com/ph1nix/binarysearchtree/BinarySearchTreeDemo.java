@@ -1,5 +1,7 @@
 package com.ph1nix.binarysearchtree;
 
+import org.w3c.dom.NodeList;
+
 /**
  * binarySearchTree
  *
@@ -17,7 +19,7 @@ public class BinarySearchTreeDemo {
         System.out.println("Infix order binary search tree");
         binarySearchTree.infixOrder();
 
-        binarySearchTree.delete(2);
+        binarySearchTree.delNode(7);
         System.out.println("After delete, Infix order binary search tree");
         binarySearchTree.infixOrder();
     }
@@ -43,7 +45,22 @@ class BinarySearchTree {
         }
     }
 
-    public void delete (int value) {
+    /**
+     * delete the node that have min value
+     *
+     * @param node the root node of binary search tree
+     * @return the min value in the tree that have node as root node
+     */
+    public int delRightTreeMin (Node node) {
+        Node target = node;
+        while (target.left != null) {
+            target = target.left;
+        }
+        delNode(target.value);
+        return target.value;
+    }
+
+    public void delNode (int value) {
         if (root == null) { // empty
             return;
         } else {
@@ -63,6 +80,23 @@ class BinarySearchTree {
                     parent.left = null;
                 } else if(parent.right != null && parent.right.value == value) {
                     parent.right = null;
+                }
+            } else if (targetNode.left != null && targetNode.right != null) { // delete the node that have two child tree
+                int minValue = delRightTreeMin(targetNode.right);
+                targetNode.value = minValue;
+            } else { // delete the node that only have on child tree
+                if (targetNode.left != null) { // target has left child node
+                    if(parent.left.value == value) { // target is the left child node of parent
+                        parent.left = targetNode.left;
+                    } else { // target is the right child node of parent
+                        parent.right = targetNode.left;
+                    }
+                } else { // target has right child node
+                    if (parent.left.value == value) {
+                        parent.left = targetNode.right;
+                    } else {
+                        parent.right = targetNode.right;
+                    }
                 }
             }
         }
