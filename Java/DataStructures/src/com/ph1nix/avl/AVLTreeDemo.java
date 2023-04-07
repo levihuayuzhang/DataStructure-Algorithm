@@ -1,31 +1,40 @@
-package com.ph1nix.binarysearchtree;
+package com.ph1nix.avl;
 
 /**
- * binarySearchTree
+ * AVLTree
  *
  * @author Huayu Zhang
- * create time: 2023-04-03 16:04:09
+ * create time: 2023-04-06 12:06:05
  */
-public class BinarySearchTreeDemo {
+public class AVLTreeDemo {
     public static void main(String[] args) {
-        int[] arr = {7, 3, 10, 12, 5, 1, 9, 2};
-        BinarySearchTree binarySearchTree = new BinarySearchTree();
-        for (int i = 0; i < arr.length; i++) {
-            binarySearchTree.add(new Node(arr[i]));
+//        int[] arr = {4, 3, 6, 5, 7, 8};
+        int[] arr = {10, 12, 8, 9, 7, 6};
+
+        AVLTree avlTree = new AVLTree();
+        for (int i = 0; i < arr.length;i++) {
+            avlTree.add(new Node(arr[i]));
         }
 
-        System.out.println("Infix order binary search tree");
-        binarySearchTree.infixOrder();
+        System.out.println("Infix order:");
+        avlTree.infixOrder();
 
-        binarySearchTree.delNode(7);
-        System.out.println("After delete, Infix order binary search tree");
-        binarySearchTree.infixOrder();
+//        System.out.println("Before rotate:");
+        System.out.println("The height of the tree is " + avlTree.getRoot().height());
+        System.out.println("The height of the left child tree is " + avlTree.getRoot().leftHeight());
+        System.out.println("The height of the right child tree is " + avlTree.getRoot().rightHeight());
+        System.out.println("Current root node is: " + avlTree.getRoot());
+
+
     }
-
 }
 
-class BinarySearchTree {
+class AVLTree {
     private Node root;
+
+    public Node getRoot() {
+        return root;
+    }
 
     public Node search (int value) {
         if (root == null) {
@@ -124,7 +133,6 @@ class BinarySearchTree {
     }
 }
 
-
 class Node {
     int value;
     Node left;
@@ -132,6 +140,54 @@ class Node {
 
     public Node(int value) {
         this.value = value;
+    }
+
+    public int leftHeight() {
+        if(left == null) {
+            return 0;
+        }else {
+            return left.height();
+        }
+    }
+
+    public int rightHeight() {
+        if(right == null) {
+            return 0;
+        }else {
+            return right.height();
+        }
+    }
+
+    /**
+     *
+     * @return the height of current node, the height of the tree that use current node as root
+     */
+    public int height () {
+        return Math.max(left == null ? 0 : left.height(), right == null ? 0 : right.height()) + 1;
+    }
+
+    private void leftRotate() {
+        // new node has the value of current root node
+        Node newNode = new Node(value);
+        // set left child tree of new node as the left child tree of current node
+        newNode.left = left;
+        // set right child tree of new node as the left child tree of right child tree of current node
+        newNode.right = right.left;
+        // set value of current node to the value right child node
+        value = right.value;
+        // set right child tree of current node to the right child tree of right child tree
+        right = right.right;
+        // set left child node to the new node
+        left = newNode;
+    }
+
+    private void rightRotate() {
+        Node newNode = new Node(value);
+        newNode.right = right;
+        newNode.left = left.right;
+        value = left.value;
+        left = left.left;
+        right = newNode;
     }
 
     @Override
@@ -194,6 +250,15 @@ class Node {
             } else {
                 this.right.add(node);
             }
+        }
+
+        // after adding a node, if (right.height - left.height) > 1, then perform left rotate
+        if (rightHeight() - leftHeight() > 1) {
+            leftRotate();
+        }
+
+        if (leftHeight() - rightHeight() > 1) {
+            rightRotate();
         }
     }
 
