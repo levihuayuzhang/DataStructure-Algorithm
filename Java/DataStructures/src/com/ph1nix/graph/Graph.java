@@ -2,6 +2,7 @@ package com.ph1nix.graph;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * Graph
@@ -13,6 +14,7 @@ public class Graph {
     private ArrayList<String> vertexList;
     private int[][] edges;
     private int numOfEdges;
+    private boolean[] isVisited;
     public static void main(String[] args) {
         int n = 5;
         String[] vertexValue = {"A", "B", "C" , "D", "E"};
@@ -27,12 +29,102 @@ public class Graph {
         graph.insertEdges(1, 3, 1);
         graph.insertEdges(1, 4, 1);
         graph.showGraph();
+
+//        System.out.println("Deep:");
+//        graph.dfs();
+//        System.out.println();
+
+        System.out.println("Broad:");
+        graph.bfs();
     }
 
     public Graph (int n) {
         edges = new int[n][n];
         vertexList = new ArrayList<>(n);
         numOfEdges = 0;
+        isVisited = new boolean[n];
+    }
+
+    /**
+     *
+     * @param index
+     * @return if existed, return corresponding index, if not, return -1
+     */
+    public int getFirstNeighbor(int index) {
+        for (int j = 0; j < vertexList.size(); j++) {
+            if (edges[index][j] > 0) {
+                return j;
+            }
+        }
+        return -1;
+    }
+
+    public int getNextNeighbor(int v1, int v2) {
+        for (int j = v2 + 1; j < vertexList.size(); j++) {
+            if (edges[v1][j] > 0) {
+                return j;
+            }
+        }
+        return -1;
+    }
+
+    // deep first search
+    public void dfs(boolean[] isVisited, int i) {
+        System.out.printf(getValue(i) + " -> ");
+        isVisited[i] = true;
+
+        int w  = getFirstNeighbor(i);
+        while(w != -1) {
+            if(!isVisited[w]) {
+                dfs(isVisited, w);
+            }
+            w = getNextNeighbor(i, w);
+        }
+    }
+
+    // overdrive
+    public void dfs () {
+        for (int i = 0; i < getNumOfVertexes(); i++) {
+            if(!isVisited[i]) {
+                dfs(isVisited, i);
+            }
+        }
+    }
+
+    /**
+     * broad first search
+     *
+     * @param isVisited
+     * @param i
+     */
+    public void bfs (boolean[] isVisited, int i) {
+        int u; // index of head node of queue
+        int w; // neighbor node
+        LinkedList<Integer> queue = new LinkedList<>();
+        System.out.printf(getValue(i) + " => ");
+        isVisited[i] = true;
+        queue.add(i);
+
+        while (!queue.isEmpty()) {
+            u = queue.removeFirst();
+            w = getFirstNeighbor(u);
+            while (w != -1) {
+                if (!isVisited[w]) {
+                    System.out.printf(getValue(w) + " => ");
+                    isVisited[w] = true;
+                    queue.addLast(w);
+                }
+                w = getNextNeighbor(u, w); // broad first
+            }
+        }
+    }
+
+    public void bfs() {
+        for (int i = 0; i < getNumOfVertexes(); i++) {
+            if(!isVisited[i]){
+                bfs(isVisited, i);
+            }
+        }
     }
 
     public void showGraph () {
