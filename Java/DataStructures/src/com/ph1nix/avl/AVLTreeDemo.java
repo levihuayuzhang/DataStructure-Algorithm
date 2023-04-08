@@ -9,7 +9,9 @@ package com.ph1nix.avl;
 public class AVLTreeDemo {
     public static void main(String[] args) {
 //        int[] arr = {4, 3, 6, 5, 7, 8};
-        int[] arr = {10, 12, 8, 9, 7, 6};
+//        int[] arr = {10, 12, 8, 9, 7, 6};
+
+        int[] arr = {10, 11, 7, 6, 8, 9};
 
         AVLTree avlTree = new AVLTree();
         for (int i = 0; i < arr.length;i++) {
@@ -24,8 +26,6 @@ public class AVLTreeDemo {
         System.out.println("The height of the left child tree is " + avlTree.getRoot().leftHeight());
         System.out.println("The height of the right child tree is " + avlTree.getRoot().rightHeight());
         System.out.println("Current root node is: " + avlTree.getRoot());
-
-
     }
 }
 
@@ -254,11 +254,22 @@ class Node {
 
         // after adding a node, if (right.height - left.height) > 1, then perform left rotate
         if (rightHeight() - leftHeight() > 1) {
-            leftRotate();
+            if (right != null && right.leftHeight() > right.rightHeight()) {
+                right.rightRotate();
+                leftRotate();
+            } else {
+                leftRotate();
+            }
+            return;
         }
 
         if (leftHeight() - rightHeight() > 1) {
-            rightRotate();
+            if (left != null && left.rightHeight() > left.leftHeight()) {
+                left.leftRotate();
+                rightRotate();
+            } else {
+                rightRotate();
+            }
         }
     }
 
