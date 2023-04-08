@@ -8,7 +8,7 @@ import java.util.LinkedList;
  * Graph
  *
  * @author Huayu Zhang
- * create time: 2023-04-08 03:37:08
+ * @create: 2023-04-08 03:37:08
  */
 public class Graph {
     private ArrayList<String> vertexList;
