@@ -1,6 +1,3 @@
-# Data Structure & Algorithm & Cryptography in Different Languages
+# DataStructure-Algorithm
 
-1. [Java](./Java/)
-2. C/C++
-3. rust
-5. Python
+In Java
