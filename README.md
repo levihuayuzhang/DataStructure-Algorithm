@@ -1,3 +1,5 @@
 # DataStructure-Algorithm
 
-In Java
+Algorithm and Data Structure in Java.
+
+ACM mode.
